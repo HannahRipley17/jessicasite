@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+        <link rel="stylesheet" type="text/css" href="jessicasite.css">
+    </head>
+    <div id="app">
+        <v-app>
+            <v-content>
+                <v-toolbar flat height=100>
+                    <v-toolbar-title>PhotoJewels2You</v-toolbar-title>
+                    <v-spacer></v-spacer>
+                    <v-toolbar-items>
+                        <v-btn color="#B7C3B5" width=100 @click="page = 'home'">home</v-btn>
+                        <v-btn color="#B7C3B5" width=100 @click="page = 'services'">Services</v-btn>
+                        <v-btn color="#B7C3B5" width=100 @click="page = 'schedule'">Schedule</v-btn>
+                        <v-btn color="#B7C3B5" width=100 @click="page = 'about'">about</v-btn>
+                    </v-toolbar-items>
+                </v-toolbar>
+                <div v-show="page == 'home'">
+                    <v-img src="oldpictures.jpg">
+                        <v-container grid-list-lg fluid>
+                            <v-layout align-end justify-center row fill-height>
+                                <v-flex></v-flex>
+                                <v-flex>
+                                    <v-card color="grey" class="ma-2 pa-2 align-items=bottom">quote</v-card>
+                                </v-flex>
+                                <v-flex></v-flex>
+                            </v-layout>
+                        </v-container> 
+                    </v-img>
+                    <v-container grid-list-lg fluid>
+                        <v-layout row wrap>
+                                <v-flex>
+                                    <v-card class="ma-2 pa-2" height=300>Hi</v-card>
+                                </v-flex>
+                                <v-flex>
+                                    <v-card class="ma-2 pa-2" height=300>Hi</v-card>
+                                </v-flex>
+                                <v-flex>
+                                    <v-card class="ma-2 pa-2" height=300>Hi</v-card>
+                                </v-flex>
+                        </v-layout>
+                    </v-container>
+                    <v-container grid-list-lg fluid>
+                        <v-layout row wrap>
+                            <v-flex>
+                                <v-card>
+                                    <v-layout>
+                                        <v-img src="oldpictures.jpg"></v-img>
+                                        <v-flex xs4>
+                                            <v-card class="ma-2 pa-2" color="blue" height=400>This is a very nice image that will convince you to buy this service</v-card>
+                                        </v-flex>
+                                    </v-layout>
+                                </v-card>
+                            </v-flex>
+                        </v-layout>
+                    </v-container>
+                </div> 
+
+                <div v-show="page == 'about'">
+                    <v-container>
+                        <v-layout>
+                            <v-flex xs5>
+                                <v-img src="smilingwoman.jpeg" height=300 contain class="pa-0 align-items=top"></v-img>
+                            </v-flex>
+                            <v-flex>
+                                <v-card flat>
+                                    <v-card-text class="headline">Hi! My name is Julie!</v-card-text>
+                                    <v-card-text class="headline">I love to organize, and I love photos!</v-card-text>
+                                </v-card>
+                            </v-flex>
+                        </v-layout>
+                        <v-layout>
+                            <v-flex>
+                                <v-card class="mt-3" flat>
+                                    <v-card-text class="title">
+                                            PhotoJewels2U is a fairly new company ran single-handedly by me, Julie Stipe. I recieved certification in mentorship and photo organization by the A.P.P.O. (Association of Personal Photo Organizers) in 2018 and have used that to aid people in overwhelming photo organization tasks ever since, even though I have been doing photo organizing since 2008. I started a passion for photo organization as my late mother and I decided that making memories last forever needed to be a priority and we worked together scrapbooking and digitizing our thousands of photos for years until she passed. Now I have more passion then ever as I carry on our work together and strive to bring my talents to others so they too can make lasting memories a priority. I believe that photos are gems that allow us the unique ability to catch glimpses of moments in time and to see into other's lives. I strive to make these gems that can keep our memories alive for generations to come available to as many people as I can.
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+                        </v-layout>
+                        <v-layout>
+                            <v-flex>
+                                <v-card flat>
+                                    <v-card-text class="headline">Hi! My name is Julie!</v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-flex xs5>
+                                <v-img src="smilingwoman.jpeg" height=300 contain class="pa-0 align-items=top"></v-img>
+                            </v-flex>
+                        </v-layout>
+                    </v-container>
+                </div>
+
+                <div v-show="page == 'services'">
+                    <v-container>
+                        <v-layout>
+                            <v-flex>
+                                <v-card>
+                                    <v-card-text>We offer a wide range of services, including</v-card-text>
+                                    <ul>
+                                        <li>Service 1</li>
+                                        <li>Service 2</li>
+                                        <li>Service 3</li>
+                                        <li>Service 4</li>
+                                        <li>Service 5</li>
+                                    </ul>
+                                </v-card>
+                            </v-flex>
+                        </v-layout>
+                    </v-container>
+                </div>
+                
+            </v-content>
+         </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+	<script src="jessicasite.js"></script>
+</html>
