@@ -1,4 +1,23 @@
+body {
+    background-color: rgb(183,195,181, .5)
+}
+
+
 #jessicamom {
     height: 400px;
-    
 }
+
+.my-event {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: 2px;
+    background-color: #B39DDB;
+    color: #ffffff;
+    border: 1px solid #B39DDB;
+    width: 100%;
+    font-size: 12px;
+    padding: 3px;
+    cursor: pointer;
+    margin-bottom: 1px;
+  }

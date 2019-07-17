@@ -24,14 +24,16 @@
                             <v-layout align-end justify-center row fill-height>
                                 <v-flex></v-flex>
                                 <v-flex>
-                                    <v-card color="grey" class="ma-2 pa-2 align-items=bottom">quote</v-card>
+                                    <v-card height=300px width=300px class="ma-2 pa-2 align-items=bottom display-2" color="rgba(85, 82, 89, 0.75)">
+                                        <v-card-text class="white--text">A photograph taken is a memory preserved</v-card-text>
+                                    </v-card>
                                 </v-flex>
                                 <v-flex></v-flex>
                             </v-layout>
                         </v-container> 
                     </v-img>
                     <v-container grid-list-lg fluid>
-                        <v-layout row wrap>
+                        <v-layout row wrap >
                                 <v-flex>
                                     <v-card class="ma-2 pa-2" height=300>Hi</v-card>
                                 </v-flex>
@@ -57,6 +59,73 @@
                             </v-flex>
                         </v-layout>
                     </v-container>
+                    <div>
+                            <v-layout>
+                                <v-flex>
+                                  <v-sheet height="500">
+                                    <v-calendar
+                                      :now="today"
+                                      :value="today"
+                                      color="deep-purple"
+                                    >
+                                      <template v-slot:day="{ date }">
+                                        <template v-for="event in eventsMap[date]">
+                                          <v-menu
+                                            :key="event.title"
+                                            v-model="event.open"
+                                            full-width
+                                            offset-x
+                                          >
+                                            <template v-slot:activator="{ on }">
+                                              <div
+                                                v-if="!event.time"
+                                                v-ripple
+                                                class="my-event"
+                                                v-on="on"
+                                                v-html="event.title"
+                                              ></div>
+                                            </template>
+                                            <v-card
+                                              color="grey lighten-4"
+                                              min-width="350px"
+                                              flat
+                                            >
+                                              <v-toolbar
+                                                color="primary"
+                                                dark
+                                              >
+                                                <v-btn icon>
+                                                  <v-icon>edit</v-icon>
+                                                </v-btn>
+                                                <v-toolbar-title v-html="event.title"></v-toolbar-title>
+                                                <v-spacer></v-spacer>
+                                                <v-btn icon>
+                                                  <v-icon>favorite</v-icon>
+                                                </v-btn>
+                                                <v-btn icon>
+                                                  <v-icon>more_vert</v-icon>
+                                                </v-btn>
+                                              </v-toolbar>
+                                              <v-card-title primary-title>
+                                                <span v-html="event.details"></span>
+                                              </v-card-title>
+                                              <v-card-actions>
+                                                <v-btn
+                                                  flat
+                                                  color="secondary"
+                                                >
+                                                  Cancel
+                                                </v-btn>
+                                              </v-card-actions>
+                                            </v-card>
+                                          </v-menu>
+                                        </template>
+                                      </template>
+                                    </v-calendar>
+                                  </v-sheet>
+                                </v-flex>
+                              </v-layout>
+                        </div>
                 </div> 
 
                 <div v-show="page == 'about'">
@@ -66,24 +135,31 @@
                                 <v-img src="smilingwoman.jpeg" height=300 contain class="pa-0 align-items=top"></v-img>
                             </v-flex>
                             <v-flex>
-                                <v-card flat>
-                                    <v-card-text class="headline">Hi! My name is Julie!</v-card-text>
-                                    <v-card-text class="headline">I love to organize, and I love photos!</v-card-text>
+                                <v-card flat class="transparent">
+                                    <v-card-text class="headline ">Hi! My name is Julie!</v-card-text>
+                                    <v-card-text class="headline ">I love to organize, and I love photos!</v-card-text>
                                 </v-card>
                             </v-flex>
                         </v-layout>
                         <v-layout>
                             <v-flex>
-                                <v-card class="mt-3" flat>
-                                    <v-card-text class="title">
-                                            PhotoJewels2U is a fairly new company ran single-handedly by me, Julie Stipe. I recieved certification in mentorship and photo organization by the A.P.P.O. (Association of Personal Photo Organizers) in 2018 and have used that to aid people in overwhelming photo organization tasks ever since, even though I have been doing photo organizing since 2008. I started a passion for photo organization as my late mother and I decided that making memories last forever needed to be a priority and we worked together scrapbooking and digitizing our thousands of photos for years until she passed. Now I have more passion then ever as I carry on our work together and strive to bring my talents to others so they too can make lasting memories a priority. I believe that photos are gems that allow us the unique ability to catch glimpses of moments in time and to see into other's lives. I strive to make these gems that can keep our memories alive for generations to come available to as many people as I can.
-                                    </v-card-text>
+                                <v-card flat class="mt-3 transparent">
+                                    <v-card-text class="title font-weight-light">
+                                            PhotoJewels2U is a fairly new company ran single-handedly by me, Julie Stipe. I recieved certification in mentorship and photo organization by the A.P.P.O. (Association of Personal Photo Organizers) in 2018 and have used that to aid people in overwhelming photo organization tasks ever since, even though I have been doing photo organizing since 2008. 
+                                        </v-card-text>
+                                        <v-card-text class="title font-weight-light">
+                                            I started a passion for photo organization as my late mother and I decided that making memories last forever needed to be a priority and we worked together scrapbooking and digitizing our thousands of photos for years until she passed. Now I have more passion then ever as I carry on our work together and strive to bring my talents to others so they too can make lasting memories a priority. 
+                                        </v-card-text>
+                                        <v-card-text class="title font-weight-light">
+                                            I believe that photos are gems that allow us the unique ability to catch glimpses of moments in time and to see into other's lives. I strive to make these gems that can keep our memories alive for generations to come available to as many people as I can.
+                                        </v-card-text>
+                                    
                                 </v-card>
                             </v-flex>
                         </v-layout>
                         <v-layout>
                             <v-flex>
-                                <v-card flat>
+                                <v-card flat class="transparent">
                                     <v-card-text class="headline">Hi! My name is Julie!</v-card-text>
                                 </v-card>
                             </v-flex>
@@ -95,18 +171,16 @@
                 </div>
 
                 <div v-show="page == 'services'">
+                        <v-img src="oldpictures.jpg"></v-img>
                     <v-container>
                         <v-layout>
                             <v-flex>
-                                <v-card>
-                                    <v-card-text>We offer a wide range of services, including</v-card-text>
-                                    <ul>
-                                        <li>Service 1</li>
-                                        <li>Service 2</li>
-                                        <li>Service 3</li>
-                                        <li>Service 4</li>
-                                        <li>Service 5</li>
-                                    </ul>
+                                <v-card color=rgb(183,195,181,.5)>
+                                    <v-card-text class="headline">We offer a wide range of services, including</v-card-text>
+                                    <div v-for="service in services">
+                                        <v-card-text class="headline font-weight-bold">{{service.service}}</v-card-text>
+                                        <v-card-text class="title pa-4">{{service.description}}</v-card-text>
+                                    </div>
                                 </v-card>
                             </v-flex>
                         </v-layout>
